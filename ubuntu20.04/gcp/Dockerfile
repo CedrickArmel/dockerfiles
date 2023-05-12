@@ -14,6 +14,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B53DC80D13EDEF05 &&
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B53DC80D13EDEF05 && echo "deb http://packages.cloud.google.com/apt gcsfuse-focal main" | tee /etc/apt/sources.list.d/gcsfuse.list && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | tee /usr/share/keyrings/cloud.google.gpg && apt-get  update -y && apt-get install -y gcsfuse && rm -rf /var/lib/apt/lists/*
 RUN apt update -y && apt install -y libnuma-dev
 EXPOSE 8080
+EXPOSE 8888
 COPY ["/requirements/run_jupyter.sh", "/run_jupyter.sh"]
 COPY ["/requirements//opt/jupyter/.jupyter/jupyter_notebook_config.py", "/opt/jupyter/.jupyter/jupyter_notebook_config.py"]
 VOLUME ["/home/jupyter"]
